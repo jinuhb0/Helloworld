@@ -18,7 +18,7 @@ Helloworld
 * Number 2
 * Number 3
 
-'''C
+'''c
 #include <stdio.h>
 
 int main(void){
