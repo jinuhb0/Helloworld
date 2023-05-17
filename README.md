@@ -18,10 +18,10 @@ Helloworld
 * Number 2
 * Number 3
 
-'''c
+```c
 #include <stdio.h>
 
 int main(void){
 return 0;
 }
-'''
+```
