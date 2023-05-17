@@ -18,6 +18,12 @@ Helloworld
 * Number 2
 * Number 3
 
+`printf("Hello World!");`
+
+```bash
+echo "Hello World!" > main.c
+```
+
 ```c
 #include <stdio.h>
 
