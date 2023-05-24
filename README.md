@@ -1,33 +1,173 @@
-# Helloworld
-Helloworld
+# top
 
-# Heading 1
-## Heading 2
-### Heading 3
-###### Heading 6
+![top](https://blog.kakaocdn.net/dn/rxlg4/btqYfV2LE3L/SW5SbyO65ZUa5PggM3KI8K/img.png)
+  top 명령어는 현재 OS의 상태를 나타내주는 CLI 어플리케이션입니다. 메모리 사용량, CPU 사용량 등을 나타내주며 top를 실행하는 동안에는 주기적인 업데이트로 실시간에 근접한 내용을 보여줍니다. 또한 정보는 3초마다 업데이트 되며, 위에는 전체의 요약이 있으며 아래에는 각 프로세스마다 구체적인 내용을 포함하고 있습니다.
+  (tps://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcIwHTf%2FbtqYiCOXiQk%2F0wpKbRc7uKG8mo9vfKLWiK%2Fimg.png)
+  
+### **요약영역**
+  
+![top2](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Fblog.kakaocdn.net%2Fdn%2FcIwHTf%2FbtqYiCOXiQk%2F0wpKbRc7uKG8mo9vfKLWiK%2Fimg.png)
+  요약 영역은 top에서 상단에 위치하고 있으며, 이 요약 영역은 전체 프로세스가 OS에 대해서 리소스를 어느정도 차지하고 있는지를 알려줍니다. 또한 요약 영역에 나타나는 대표적인 값은 시간, 유저, 로드 에버리지, 테스크, CPU, 메모리순으로 보여줍니다.
+  
+### **CPU 사용량**
+  
+  cpu의 사용율을 보여주는 명령어는 다음과 같습니다.
+  
+  - us : 프로세스의 유저 영역에서의 CPU 사용률
+  - sy : 프로세스의 커널 영역에서의 CPU 사용률
+  - ni : 프로세스의 우선순위(priority) 설정에 사용하는 CPU 사용률
+  - id : 사용하고 있지 않는 비율
+  - wa : IO가 완료될때까지 기다리고 있는 CPU 비율
+  - hi : 하드웨어 인터럽트에 사용되는 CPU 사용률
+  - si : 소프트웨어 인터럽트에 사용되는 CPU 사용률
+  - st : CPU를 VM에서 사용하여 대기하는 CPU 비율
 
-- Bullet 1
-- Bullet 2
-- Bullet 3
+### **메모리 사용량**
 
-+ Option 1
-+ Option 2
-+ Option 3
+메모리양을 보여주는 명령어는 다음과 같습니다.
 
-* Number 1
-* Number 2
-* Number 3
+  - total : 총 메모리 양
+  - free : 사용가능한 메모리 양
+  - used : 사용중인 메모리 양
 
-`printf("Hello World!");`
+### **자주쓰는 top용 명령어**
+  
+  #### k - kill process (프로세스를 종료해주는 기능)
+  
+  - k - top화면을 보며 종료할수 있는 기능입니다.
+  
+  #### Sorting the process list (원하는 값을 기준으로 정렬해주는 기능)
+  
+  - M - 메모리의 사용량을 기준으로 정렬해줍니다.
+  - P - CPU의 사용량을 기준으로 정렬해줍니다.
+  - N - 프로세스 ID를 보여줍니다.
+  - T - 런타임 기준으로 정렬해줍니다.
+  - R - 오름차순과 내림차순으로 각각 변경해줍니다.
+  
+  #### Showing a list of threads instead of processes (프로세스 보여주는 기능)
+  
+  - H - 쓰레드를 기준으로 보여주는 방식으로 변경됩니다.
+  
+  #### Filtering through processes (필터링 기능)
+  
+  - o 또는 O
+  - COMMAND
+  - %CPU
+  
+# ps
+  ps 명령어는 현재 실행중인 프로세스 목록과 상태를 보여줍니다. ps의 옵션은 전통정인 유닉스인 System V, BSD, GNU에 따라 결과가 다르게 나타나고 표기법에도 차이를 보입니다. 옵션 사용시 System V의 계열은 대시(dash,-)를 사용하고 BSD의 계열은 대시(-)를 사용하지 않습니다. GNU에서의 옵션표기는 두개의 대시(--)를 사용합니다. 따라서 원하는 프로세스의 상태를 출력하려면 정확한 옵션사용이 중요합니다. 그리고 프로세스 중에서 CPU, 메모리 등등을 많이 점유하고 있거나, 지나치게 많은 자식 프로세스를 생성하는 등등에 시스템에 속도가 느려지는 경우 ps 명령어로 분석하여 시스템 오류를 감지할 수 있습니다.
+  
+  ### **ps 명령어 모음**
 
-```bash
-echo "Hello World!" > main.c
+  - -a - 세션 리더와 터미널과 연관이 없는 프로세스를 제외한 모든 프로세스를 출력 합니다.
+  - a - BSD 스타일로서 터미널과 연관된 모든 프로세스를 출력하거나, x 옵션과 함께 사용되어 모든 프로세스를 출력 합니다.
+  - -d - 	세션 리더를 제외한 모든 프로세스들을 출력 합니다.
+  - r - 	실행 프로세스만 출력 합니다.
+  - x - BSD 스타일로서 혼자 사용되면 사용자에 의해 소유된 모든 프로세스를 출력하고 a 옵션과 함께 사용되어 모든 프로세스를 출력 합니다.
+  - -l - 상세한 내용을 출력 합니다.
+  - -f - 완전한 형식의 목록을 출력 합니다.
+  - -h - 메뉴는 보여주지 않습니다.(PID, TTY, STAT, TIME, COMMAND 등).
+  - -j - 작업에 관련된 ID를 출력 합니다.
+  - -i - -j 옵션보다 자세하게 정보를 출력 합니다.
+  - u - 사용자 친화적인 형식으로 출력 합니다.
+  - f - 프로세스 간 상속관계를 트리구조로 출력 합니다.
+  - n - 프로세스 간 상속관계를 트리구조로 출력 합니다.
+  - -w - 출력결과를 생략하지 않고 넓게 출력 합니다.
+  
+  ### **ps 출력 의미**
+  
+  - PID(process ID) - 프로세스마다 주어지는 번호 입니다.
+  - TTY(TeleTypewriter) - 명령어가 실행되는 터미널의 번호, 할당된 것이 없는 경우 물음표(?) 출력 합니다.
+  - STAT - 실행되고 있는 프로세스 상태 입니다. (R, S, D, T, Z, W, N)
+  - START - 프로세스가 시작된 시간 입니다.
+  - TIME - CPU가 사용한 시간 입니다.
+  - USER - 사용자 이름 입니다.
+  - COMMAND - 사용자가 실행한 명령어 입니다.
+  - UID(User ID) - 사용자의 ID 입니다.
+  - PGID(Parent Group ID) - 사용자 부모 프로세스이 그룹 ID 입니다.
+  - SID(Session ID) - 세션 ID 입니다.
+  - PRI(PRIority)	- 실행하는 우선순위에 따른 프로세스 입니다.
+  - NI(NIce) - nice에 의한 우선순위에 따른 프로세스 입니다.
+  - RSS(Resident Set Size) - 프로세스가 사용하는 메모리의 크기 입니다.
+  - SZ(SiZe) - 프로세스가 사용하는 자료와 스택의 크기 입니다.
+  - SHRD(SHareD) - 프로세스가 사용하는 공유 메모리 입니다.
+  - %CPU (top 사용 명령어) - 프로세스가 사용하는 CPU 점유율 입니다.
+  - %MEM - 프로세스가 사용하고 있는 메모리 점유율 입니다.
+  - WCHAN - 프로세스가 실행하고 있는 커널 루틴 입니다.
+  - VSZ - KiB 단위(1024 바이트 단위)의 프로세스의 버추얼 메모리 크기(vsize와 동일한 의미) 입니다.
+
+# jobs
+  jobs 명령어는 작업의 상태를 표시하는 명령어다. 현재 쉘 세션에서 실행시킨 백그라운드 작업의 목록이 출력되며, 각 작업에는 번호가 붙어 있어 kill 명령어 뒤에 '%번호' 등으로 사용할 수 있습니다.
+  
+  ### **사용법**
+  
+  ```
+  jobs [옵션] [job ID]
+
+jobs -x command [args]
 ```
+### **옵션**
 
-```c
-#include <stdio.h>
+- -p - 각 프로세스 ID에 대해 출력 합니다.
+- -l - 프로세스 그룹 ID를 state 필드 앞에 출력 합니다.
+- -s - 프로세스 중 멈춰있는 프로세스만 출력 합니다.
+- -n - 각 프로세스 ID에 대해 한 행씩 출력 합니다.
+- -r - 프로세스 중 실행중인 프로세스만 출력 합니다.
+- command - 지정한 명령어를 실행 합니다.
 
-int main(void){
-return 0;
-}
-```
+### **jobs로 알 수 있는 상태값**
+
+- Running - 작업이 계속 진행중이란 뜻입니다.
+- Done - 작업이 완료되어 0을 반환하고 종료합니다.
+- Done(code) - 작업이 종료되었으며 0이 아닌코드 반환해줍니다.
+- Stopped - 작업이 일시중단됨을 알려줍니다. 
+- Stopped(SIGTSTP) - SIGTSTP 신호가 작업을 일시 중단됨을 알려줍니다. 
+- Stopped(SIGSTOP) - SIGSTOP 신호가 작업을 일시 중단됨을 알려줍니다. 
+- Stopped(SIGTIM) - SIGTTIN 신호가 작업을 일시 중단됨을 알려줍니다. 
+- Stopped(SIGTTOU) - SIGTTOU 신호가 작업을 일시 중단됨을 알려줍니다. 
+
+# kill
+  kill 명령어는 대개 프로세스를 죽일 때 사용합니다. 하지만 내부적으로는 프로세스에 시그널을 보내 원하는 작업을 하게 하는 명령어입니다.
+  
+  ### **kill 명령어**
+  
+  kill 명령어는 대개 프로세스를 죽일 때 사용합니다. 하지만 내부적으로는 프로세스에 시그널을 보내 원하는 작업을 하게 하는 명령어입니다. 이 툴을 사용하려면 다음 구문을 사용합니다.
+  ```
+  $ kill [options] <pid> [...]
+  ```
+   ### **프로세스를 죽이는 방법**
+   
+   죽이려는 프로세스의 pid를 얻은 다음 kill 명령어의 인자로 넘기면 됩니다.
+   ```
+   $ kill [pid]
+   ```
+   예를들어 node.js로 실행 중인 서버를 죽이고 싶다면 ps 명령어를 통해 node.js의 pid를 얻고 kill 명령어의 파라미터로 넘겨 실행시키면 종료시킬 수 있습니다.
+   ![kill1](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F993696485C6377E90C)
+   
+   ### **사용자 지정 시그널 전송 방법**
+   
+   kill 명령어의 default 시그널은 TERM(15) 입니다. 하지만 -s 명령으로 다른 시그널을 보낼 수 있습니다.
+   ```
+   $ kill -s [signal] [pid]
+   ```
+   예를 들어 프로세스가 TERM(15) 시그널에 응답하지 않으면 다음의 명령어 처럼 KILL(9)를 사용해 강제로 죽일 수 있습니다.
+   
+   ### **사용 가능한 시그널의 목록**
+   
+   -l (List의 엘) 명령어를 통해 지원하는 시그널의 목록을 확인할 수 있습니다.
+   ![kill2](https://img1.daumcdn.net/thumb/R1280x0/?scode=mtistory2&fname=https%3A%2F%2Ft1.daumcdn.net%2Fcfile%2Ftistory%2F99E84B455C6378A109)
+   위 사진의 경우 OSX에서 실행한 화면이라 31가지 시그널이 보이는데 지원하는 시그널의 목록은 운영체제 환경마다 다릅니다.
+   
+   ### **시그널을 보내는 다른 방법**
+   
+   위의 예 처럼 -s 명령어를 이용해 여러가지 시그널을 보낼 수 있는데 이 방법 이외에도 여러가지 방법이 있습니다.
+   ```
+   $ kill -s KILL [pid]
+   $ kill -s SIGKILL [pid] 
+   $ kill -s 9 [pid] 
+   $ kill -9 [pid]
+   ```
+   위의 예 중에서 마지막 방법이 가장 간단해서 널리 쓰이고 있습니다. 여기서 숫자는 -l 명령어를 통해 알아낼 수 있습니다.
+   
+   이상 마치겠습니다. 감사합니다.
+   
